@@ -195,9 +195,7 @@ function checkResponse(
         };
         msg.push(newErr);
         if (config.strict === true) {
-          content[0] = JSON.stringify(msg);
-          config.logger.error(content[0]);
-          res.status(400);
+          config.logger.error(JSON.stringify(msg));
           oldSend.apply(res, content);
         } else {
           config.logger.warn(
