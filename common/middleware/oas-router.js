@@ -173,9 +173,7 @@ function checkResponse(req, res, oldSend, oasDoc, method, requestedSpecPath, con
         };
         msg.push(newErr);
         if (_configurations.config.strict === true) {
-          content[0] = JSON.stringify(msg);
-          _configurations.config.logger.error(content[0]);
-          res.status(400);
+          _configurations.config.logger.error(JSON.stringify(msg));
           oldSend.apply(res, content);
         } else {
           _configurations.config.logger.warn(JSON.stringify(msg) + JSON.stringify(validator.getLastErrors()));
