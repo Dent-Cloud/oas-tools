@@ -333,7 +333,7 @@ function convertStringValue(value, schema) {
     if (date.toString() === "Invalid Date") {
       return value;
     }
-    return date;
+    return value;
   }
   return value;
 }
