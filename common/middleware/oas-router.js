@@ -175,7 +175,6 @@ function checkResponse(req, res, oldSend, oasDoc, method, requestedSpecPath, con
         if (_configurations.config.strict === true) {
           oldSend.apply(res, content);
         } else {
-          _configurations.config.logger.warn(JSON.stringify(msg) + JSON.stringify(validator.getLastErrors()));
           if (content[0].substr(0, 46) === '{"message":"This is the mockup controller for ') {
             _configurations.config.logger.warn("The used controller might not have been implemented");
           }
